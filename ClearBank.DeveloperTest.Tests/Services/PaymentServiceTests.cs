@@ -15,14 +15,14 @@ namespace ClearBank.DeveloperTest.Tests.Services
         public PaymentServiceTests()
         {
             dataStore = Substitute.For<IAccountDataStore>();
-            sut = new PaymentService(dataStore);
+            sut = new PaymentService(dataStore, new RequestedToAccountPaymentSchemeMapper());
         }
 
         [Theory]
-        [InlineData(PaymentScheme.Bacs)]
-        [InlineData(PaymentScheme.FasterPayments)]
-        [InlineData(PaymentScheme.Chaps)]
-        public void MakePayment_AccountIsNull_ReturnsFalse(PaymentScheme reuestedScheme)
+        [InlineData(RequestedPaymentScheme.Bacs)]
+        [InlineData(RequestedPaymentScheme.FasterPayments)]
+        [InlineData(RequestedPaymentScheme.Chaps)]
+        public void MakePayment_AccountIsNull_ReturnsFalse(RequestedPaymentScheme reuestedScheme)
         {
             dataStore.GetAccount("").ReturnsForAnyArgs(default(Account));
             var request = new MakePaymentRequest { PaymentScheme = reuestedScheme };
@@ -37,7 +37,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
         {
             var validAccount = GetValidAccount();
             dataStore.GetAccount("").ReturnsForAnyArgs(validAccount);
-            var request = new MakePaymentRequest { PaymentScheme = PaymentScheme.Bacs };
+            var request = new MakePaymentRequest { PaymentScheme = RequestedPaymentScheme.Bacs };
 
             var result = sut.MakePayment(request);
 
@@ -49,7 +49,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
         {
             var validAccount = GetValidAccount();
             dataStore.GetAccount("").ReturnsForAnyArgs(validAccount);
-            var request = new MakePaymentRequest { PaymentScheme = PaymentScheme.Bacs };
+            var request = new MakePaymentRequest { PaymentScheme = RequestedPaymentScheme.Bacs };
 
             sut.MakePayment(request);
 
@@ -58,7 +58,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
 
         private static Account GetValidAccount()
         {
-            return new Account("", 1, AllowedPaymentSchemes.Bacs, AccountStatus.Live);
+            return new Account("", 1, AccountPaymentScheme.Bacs, AccountStatus.Live);
         }
     }
 }

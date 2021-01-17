@@ -13,6 +13,6 @@ namespace ClearBank.DeveloperTest.Dto
 
         public DateTime PaymentDate { get; set; }
 
-        public PaymentScheme PaymentScheme { get; set; }
+        public RequestedPaymentScheme PaymentScheme { get; set; }
     }
 }

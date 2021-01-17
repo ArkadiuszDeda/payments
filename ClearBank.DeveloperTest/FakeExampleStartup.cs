@@ -22,10 +22,10 @@ namespace ClearBank.DeveloperTest
             }
 
             // And then i.e. 
-            // serviceCollection.AddSingleton<IPaymentService>(new PaymentService(accountDataStore));
+            // serviceCollection.AddSingleton<IAccountDataStore>(accountDataStore);
             // This being just an example of home recruitment task I decided against adding actual DI packages etc here
             // like there is no real data access in DataStore
-            // Also singleton is just an example
+            // Also singleton is just an example of the lifetime
         }
     }
 }

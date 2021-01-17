@@ -7,7 +7,7 @@ namespace ClearBank.DeveloperTest.Data
         public Account GetAccount(string accountNumber)
         {
             // Access backup data base to retrieve account, code removed for brevity 
-            return new Account("", 0, AllowedPaymentSchemes.FasterPayments, AccountStatus.Live);
+            return new Account("", 0, AccountPaymentScheme.FasterPayments, AccountStatus.Live);
         }
 
         public void UpdateAccount(Account account)

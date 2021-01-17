@@ -1,6 +1,6 @@
 ﻿namespace ClearBank.DeveloperTest.Domain
 {
-    public enum AllowedPaymentSchemes
+    public enum AccountPaymentScheme
     {
         FasterPayments = 1 << 0,
         Bacs = 1 << 1,
