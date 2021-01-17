@@ -16,9 +16,9 @@
             Status = status;
         }
 
-        public void Withdraw(decimal amounth)
+        public bool Withdraw(decimal amounth, PaymentScheme scheme)
         {
-
+            return true;
         }
 
     }

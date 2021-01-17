@@ -1,4 +1,4 @@
-﻿using ClearBank.DeveloperTest.Types;
+﻿using ClearBank.DeveloperTest.Dto;
 
 namespace ClearBank.DeveloperTest.Services
 {

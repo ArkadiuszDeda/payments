@@ -1,7 +1,7 @@
 ﻿using ClearBank.DeveloperTest.Data;
 using ClearBank.DeveloperTest.Domain;
+using ClearBank.DeveloperTest.Dto;
 using ClearBank.DeveloperTest.Services;
-using ClearBank.DeveloperTest.Types;
 using NSubstitute;
 using Xunit;
 

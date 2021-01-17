@@ -1,5 +1,5 @@
 ﻿using ClearBank.DeveloperTest.Data;
-using ClearBank.DeveloperTest.Types;
+using ClearBank.DeveloperTest.Dto;
 
 namespace ClearBank.DeveloperTest.Services
 {
@@ -17,10 +17,10 @@ namespace ClearBank.DeveloperTest.Services
             var account = accountDataStore.GetAccount(request.DebtorAccountNumber);
 
             var result = new MakePaymentResult();
-            result.Success = true;
             if (account == null)
             {
                 result.Success = false;
+                return result;
             }
 
             //switch (request.PaymentScheme)
@@ -67,10 +67,10 @@ namespace ClearBank.DeveloperTest.Services
             //        break;
             //}
 
+            result.Success = account.Withdraw(request.Amount, request.PaymentScheme);
+
             if (result.Success)
             {
-                account.Withdraw(request.Amount);
-
                 accountDataStore.UpdateAccount(account);
             }
 

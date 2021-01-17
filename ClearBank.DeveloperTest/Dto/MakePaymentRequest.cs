@@ -1,6 +1,7 @@
-﻿using System;
+﻿using ClearBank.DeveloperTest.Domain;
+using System;
 
-namespace ClearBank.DeveloperTest.Types
+namespace ClearBank.DeveloperTest.Dto
 {
     public class MakePaymentRequest
     {
